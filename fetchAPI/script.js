@@ -1,8 +1,8 @@
 const pokemonName = document.querySelector(".pokemon_name");
 const pokemonNumber = document.querySelector(".pokemon_number");
-const pokemonHeight = document.querySelector(".pokemon_height");
 const form = document.querySelector(".form");
 const input = document.querySelector(".input_search");
+const btConsultar = document.getElementById("btConsultar")
 
 const fetchPokemon = async (pokemon) => {
     const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
@@ -24,3 +24,9 @@ form.addEventListener('submit', (event) => {
     console.log(input.value);
     input.value = "";
 })
+
+const handleBtConsultarClick = () => {
+    renderizaPokemon(input.value);
+}
+
+btConsultar.onclick = handleBtConsultarClick;
