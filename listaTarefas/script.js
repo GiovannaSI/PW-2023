@@ -14,16 +14,19 @@ const renderLista = (lista, tarefas) => {
         const itemText = document.createTextNode(
             `${tarefa.description} (${tarefa.done})`
         );
+
+        const btnUpdate = document.createElement("input");
+        btnUpdate.type = "checkbox";
+        btnUpdate.onclick = () => updateTask(tarefa);
+
         const button = document.createElement("button");
         button.innerHTML = "Excluir";
         button.onclick = () => deleteTask(tarefa.objectId);
-        const btnUpdate = document.createElement("button");
-        btnUpdate.innerHTML = "DONE";
-        btnUpdate.onclick = () => updateTask(tarefa);
+
         const listItem = document.createElement("li");
         listItem.appendChild(itemText);
-        listItem.appendChild(button);
         listItem.appendChild(btnUpdate);
+        listItem.appendChild(button);
         lista.appendChild(listItem);
     });
 };
