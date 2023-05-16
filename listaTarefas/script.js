@@ -12,21 +12,27 @@ const renderLista = (lista, tarefas) => {
     lista.innerHTML = "";
     tarefas.forEach((tarefa) => {
         const itemText = document.createTextNode(
-            `${tarefa.description} (${tarefa.done})`
+            `${tarefa.description}`
         );
 
         const btnUpdate = document.createElement("input");
         btnUpdate.type = "checkbox";
+        btnUpdate.checked = tarefa.done;
         btnUpdate.onclick = () => updateTask(tarefa);
 
-        const button = document.createElement("button");
-        button.innerHTML = "Excluir";
-        button.onclick = () => deleteTask(tarefa.objectId);
+        const btnDelete = document.createElement("button");
+        btnDelete.innerHTML = "X";
+        btnDelete.onclick = () => deleteTask(tarefa.objectId);
 
         const listItem = document.createElement("li");
-        listItem.appendChild(itemText);
+        
+        if (tarefa.done) {
+            listItem.classList.add("done");
+        }
+
         listItem.appendChild(btnUpdate);
-        listItem.appendChild(button);
+        listItem.appendChild(itemText);
+        listItem.appendChild(btnDelete);
         lista.appendChild(listItem);
     });
 };
@@ -56,7 +62,6 @@ const handlebtAdicionarClick = () => {
     .then((res) => res.json())
     .then((data) => {
         getTasks();
-        btAdicionar.disabled = false;
         inputDescricao.value = "";
         console.log('data', data)
 })
