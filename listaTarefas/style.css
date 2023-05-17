@@ -2,18 +2,21 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    height: 80vh;
+    height: 95vh;
+    background-image: linear-gradient(to bottom, #63d5f1, #fff);
 }
 
 h1 {
     text-align: center;
+    color: #26111f;
 }
 
 .cont {
     width: 80%;
-    margin: 250px auto;
+    margin: 100px auto;
     padding: 20px;
     background-color: #8be3fe;
+    color: #26111f;
     max-width: 500px;
 }
 
@@ -26,6 +29,11 @@ h1 {
 
 .btnAdd {
     margin: 20px 0;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 45px;
+    cursor: pointer;
+    background-color: #fff;
 }
 
 .list {
