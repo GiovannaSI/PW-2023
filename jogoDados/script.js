@@ -10,7 +10,7 @@ const resultadoFinalRodada = document.getElementById("resultadoFinalRodada");
 const resultadoFinal = document.getElementById("resultadoFinal");
 const h2Rodada = document.getElementById("h2Rodada");
 
-const maxRodadas = 3;
+const maxRodadas = 8;
 let rodadas = 0;
 let dado1 = {};
 let dado2 = {};
